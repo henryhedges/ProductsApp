@@ -1,5 +1,4 @@
 // app.js
-require("babel-register");
 require('dotenv').config();
 
 const express = require('express');
@@ -16,9 +15,6 @@ const {
 const port = PORT || 5000;
 
 let db;
-// Set up mongoose connection
-// const dev_db_url = 'mongodb://shrubs1234:password123@ds129393.mlab.com:29393/heroku_w8nzkh8f';
-// mongodb://<dbuser>:<dbpassword>@ds129393.mlab.com:29393/heroku_w8nzkh8f
 
 mongoose.Promise = global.Promise;
 mongoose.connect(DEV_MONGODB_URI);
