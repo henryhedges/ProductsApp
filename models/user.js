@@ -2,7 +2,8 @@ import mongoose from 'mongoose'
 
 const Schema = mongoose.Schema
 const UserSchema = new Schema({
-    name: {type: String, required: true, max: 100}
+    user_id: String,
+    name: String,
 })
 
 // Export the model
