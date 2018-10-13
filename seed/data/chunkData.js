@@ -23,8 +23,8 @@ export const chunkData = [
         type: 'body',
         context: {
             url: 'http://localhost:5000',
-            previousChunk: null,
-            nextChunk: null,
+            previousChunk: '1c',
+            nextChunk: '2c',
         },
         action: {
             type: "click",
@@ -37,11 +37,11 @@ export const chunkData = [
     },
     {
         chunk_id: '3c',
-        module_id: '2m',
-        type: 'head',
+        module_id: '1m',
+        type: 'tail',
         context: {
             url: 'http://localhost:5000',
-            previousChunk: null,
+            previousChunk: '2c',
             nextChunk: null,
         },
         action: {
