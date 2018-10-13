@@ -1,4 +1,4 @@
-const userData = [
+export const userData = [
     {
         user_id: '1',
         name: "user1",
@@ -7,5 +7,3 @@ const userData = [
         name: "user2",
     }
 ]
-
-export default userData

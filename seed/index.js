@@ -20,8 +20,8 @@ TrainingModule.collection.drop()
 Chunk.collection.drop()
 
 User.create(userData)
-.then(user => {
-  console.log(`${user.length} users created`)
+.then(users => {
+  console.log(`${users.length} users created`)
 
   TrainingModule.create(trainingModuleData)
   .then(trainingmodule => {

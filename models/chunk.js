@@ -12,7 +12,7 @@ const ChunkSchema = new Schema({
         nextChunk: Mixed,
     },
     action: {
-        type: String
+        type: { type: String } 
     },
     target: {
         DOMObject: Object,
@@ -25,6 +25,7 @@ const ChunkSchema = new Schema({
 module.exports = mongoose.model('Chunk', ChunkSchema)
 
 
+// CHUNK SAMPLE 
 // {
 // 	Id, //String
 // 	Type, //String - either “head”, “body”, or “tail”

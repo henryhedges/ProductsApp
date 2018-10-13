@@ -1,4 +1,4 @@
-const chunkData = [
+export const chunkData = [
     {
         chunk_id: '1c',
         module_id: '1m',
@@ -27,7 +27,7 @@ const chunkData = [
             nextChunk: null,
         },
         action: {
-            type: "click"
+            type: "click",
         },
         target: {
             DOMObject: {},
@@ -45,14 +45,12 @@ const chunkData = [
             nextChunk: null,
         },
         action: {
-            type: "click"
+            type: "click",
         },
         target: {
             DOMObject: {},
             element: '<div></div>',
         },  
         description: "This is a test chunk!",
-    },
+    }
 ]
-
-export default chunkData

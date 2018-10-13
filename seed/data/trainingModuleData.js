@@ -1,4 +1,4 @@
-const trainingModuleData = [
+export const trainingModuleData = [
     {
         module_id: '1m',
         user_id: '1',
@@ -9,5 +9,3 @@ const trainingModuleData = [
         name: "SecondModule",
     }
 ]
-
-export default trainingModuleData
