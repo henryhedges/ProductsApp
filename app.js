@@ -1,27 +1,38 @@
 // app.js
+require("babel-register");
+require('dotenv').config();
 
-var express = require('express');
-var bodyParser = require('body-parser');
+const express = require('express');
+const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
 
-var product = require('./routes/product'); // Imports routes for the products
-var app = express();
+const product = require('./routes/product'); // Imports routes for the products
+const app = express();
+const {
+    PORT,
+    DEV_MONGODB_URI
+} = process.env;
 
+const port = PORT || 5000;
 
+let db;
 // Set up mongoose connection
-var mongoose = require('mongoose');
-var dev_db_url = 'mongodb://someuser:abcd1234@ds123619.mlab.com:23619/productstutorial';
-var mongoDB = process.env.MONGODB_URI || dev_db_url;
-mongoose.connect(mongoDB);
+// const dev_db_url = 'mongodb://shrubs1234:password123@ds129393.mlab.com:29393/heroku_w8nzkh8f';
+// mongodb://<dbuser>:<dbpassword>@ds129393.mlab.com:29393/heroku_w8nzkh8f
+
 mongoose.Promise = global.Promise;
-var db = mongoose.connection;
+mongoose.connect(DEV_MONGODB_URI);
+
+db = mongoose.connection;
+
+db.on('connected', () => console.log('Connected ', DEV_MONGODB_URI))
+db.on('disconnected', () => console.log('Disconnected ..... '))
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use('/products', product);
 
-var port = 1234;
-
 app.listen(port, () => {
-    console.log('Server is up and running on port numner ' + port);
+    console.log('Server port number' + port);
 });
