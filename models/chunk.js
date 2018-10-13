@@ -10,7 +10,15 @@ const ChunkSchema = new Schema({
         url: String,
         previousChunk: Mixed,
         nextChunk: Mixed,
-    }
+    },
+    action: {
+        type: String
+    },
+    target: {
+        DOMObject: Object,
+        element: String,
+    },  
+    description: String,
 })
 
 // Export the model

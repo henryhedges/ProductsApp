@@ -6,6 +6,12 @@ import User from '../models/user'
 import TrainingModule from '../models/trainingModule'
 import Chunk from '../models/chunk'
 
+import {
+  userData,
+  trainingModuleData,
+  chunkData
+} from './data'
+
 mongoose.Promise = BluebirdPromise
 mongoose.connect(process.env.DEV_MONGODB_URI, { useNewUrlParser: true })
 
@@ -13,37 +19,15 @@ User.collection.drop()
 TrainingModule.collection.drop()
 Chunk.collection.drop()
 
-User.create([{
-    user_id: '1',
-    name: "user1",
-  }, {
-    user_id: '2',
-    name: "user2",
-  }
-])
+User.create(userData)
 .then(user => {
   console.log(`${user.length} users created`)
 
-  TrainingModule.create({
-    module_id: '1m',
-    user_id: '1',
-    name: 'FirstModule',
-  },{
-    module_id: '2m',
-    user_id: '2',
-    name: "SecondModule",
-  })
+  TrainingModule.create(trainingModuleData)
   .then(trainingmodule => {
     console.log(`${trainingmodule.length} modules created`)
 
-    Chunk.create([{
-      chunk_id: '1c',
-      module_id: '1m',
-      type: 'head',
-      context: {
-          url: 'http://localhost:5000'
-      }
-    }])
+    Chunk.create(chunkData)
     .then(chunks => {
       console.log(`${chunks.length} modules created`)
     })
