@@ -90,7 +90,9 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(function(req, res, next) {
     res.locals.loggedIn = false
+
     if (req.session.passport && typeof req.session.passport.user !== 'undefined') res.locals.loggedIn = true
+    
     next()
 });
 
