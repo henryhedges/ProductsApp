@@ -39,7 +39,7 @@ const strategy = new Auth0Strategy({
         domain: AUTH_DOMAIN,
         clientID: AUTH_ID,
         clientSecret: AUTH_CLIENT_SECRET, // Replace this with the client secret for your app
-        callbackURL: 'http://localhost:3000/callback',
+        callbackURL: `http://localhost:${PORT}/callback`,
         state: true
     },
     function(accessToken, refreshToken, extraParams, profile, done) {
@@ -92,7 +92,7 @@ app.use(function(req, res, next) {
     res.locals.loggedIn = false
 
     if (req.session.passport && typeof req.session.passport.user !== 'undefined') res.locals.loggedIn = true
-    
+
     next()
 });
 

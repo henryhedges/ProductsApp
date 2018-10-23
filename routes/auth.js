@@ -2,7 +2,7 @@
 
 const express = require('express');
 const router = express.Router();
-const Auth0Strategy = require('passport-auth0')
+// const Auth0Strategy = require('passport-auth0')
 const passport = require('passport');
 const ensureLoggedIn = require('connect-ensure-login').ensureLoggedIn();
 
@@ -16,6 +16,7 @@ router.get('/login',
 router.get('/callback',
   passport.authenticate('auth0', { failureRedirect: '/login' }),
   function(req, res) {
+    console.log('callbackcalled')
     if (!req.user) {
       throw new Error('user null');
     }
@@ -25,10 +26,11 @@ router.get('/callback',
 
 /* GET user profile. */
 router.get('/user', ensureLoggedIn, function(req, res, next) {
-  res.render('user', {
-    user: req.user ,
-    userProfile: JSON.stringify(req.user, null, '  ')
-  });
+//   res.render('user', {
+//     user: req.user ,
+//     userProfile: JSON.stringify(req.user, null, '  ')
+//   });
+    res.send("Logged in");
 });
 
 // Perform session logout and redirect to homepage
