@@ -1,56 +1,34 @@
-export const chunkData = [
-    {
-        chunk_id: '1c',
-        module_id: '1m',
-        type: 'head',
+export const chunkData = [{
+    context: {
+        host: "www.google.com",
+        hostname: "www.google.com",
+        href: "https://www.google.com/",
+        origin: "https://www.google.com",
+        pathname: "/",
+        port: "",
+        protocol: "https:",
+    },
+    data: [{
+        chunk_id: 'c1',
+        module_id: 'm1',
         context: {
-            url: 'http://localhost:5000',
+            url: 'https://www.google.com/',
+            host: "www.google.com",
+            hostname: "www.google.com",
+            href: "https://www.google.com/",
+            origin: "https://www.google.com",
+            pathname: "/",
+            port: "",
+            protocol: "https:",
             previousChunk: null,
-            nextChunk: null,
+            nextChunk: 'c2',
         },
-        action: {
-            type: "click"
+        condition: {
+            type: 'next',
+            info: {}
         },
-        target: {
-            DOMObject: {},
-            element: '<div></div>',
-        },  
-        description: "This is a test chunk!",
-    },
-    {
-        chunk_id: '2c',
-        module_id: '1m',
-        type: 'body',
-        context: {
-            url: 'http://localhost:5000',
-            previousChunk: '1c',
-            nextChunk: '2c',
-        },
-        action: {
-            type: "click",
-        },
-        target: {
-            DOMObject: {},
-            element: '<div></div>',
-        },  
-        description: "This is a test chunk!",
-    },
-    {
-        chunk_id: '3c',
-        module_id: '1m',
-        type: 'tail',
-        context: {
-            url: 'http://localhost:5000',
-            previousChunk: '2c',
-            nextChunk: null,
-        },
-        action: {
-            type: "click",
-        },
-        target: {
-            DOMObject: {},
-            element: '<div></div>',
-        },  
-        description: "This is a test chunk!",
-    }
-]
+        description: "Welcome to your training!",
+        title: 'Chunk 1'
+    }],
+    c_id: 'c_001'
+}]

@@ -1,11 +1,5 @@
-export const trainingModuleData = [
-    {
-        module_id: '1m',
-        user_id: '1',
-        name: 'FirstModule',
-    },{
-        module_id: '2m',
-        user_id: '2',
-        name: "SecondModule",
-    }
-]
+export const trainingModuleData = [{
+    chunks: ['c_001'],
+    description: 'First training module',
+    m_id: '001'
+}]

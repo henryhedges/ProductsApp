@@ -6,11 +6,22 @@ const router = express.Router();
 const passport = require('passport');
 const ensureLoggedIn = require('connect-ensure-login').ensureLoggedIn();
 
+function loggedIn(req, res, next) {
+    console.log('checking if logged in => ')
+    if (!req.user) {
+        console.log('not logged in')
+        next();
+    } else {
+        res.redirect('/user');
+    }
+}
+
 // Perform the login, after login Auth0 will redirect to callback
 router.get('/login',
-  passport.authenticate('auth0', {scope: 'openid email profile'}), function (req, res) {
-  res.redirect("/");
-});
+    loggedIn,
+    passport.authenticate('auth0', {scope: 'openid email profile'}), 
+    function (req, res) { res.redirect("/") }
+);
 
 // Perform the final stage of authentication and redirect to '/user'
 router.get('/callback',
@@ -30,6 +41,7 @@ router.get('/user', ensureLoggedIn, function(req, res, next) {
 //     user: req.user ,
 //     userProfile: JSON.stringify(req.user, null, '  ')
 //   });
+    console.log('USER ', JSON.stringify(req.user))
     res.send("Logged in");
 });
 

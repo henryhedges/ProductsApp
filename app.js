@@ -12,6 +12,7 @@ const authRouter = require('./routes/auth');
 
 const app = express();
 const product = require('./routes/product'); // Imports routes for the products
+const training = require('./routes/training');
 
 const {
     PORT,
@@ -98,6 +99,7 @@ app.use(function(req, res, next) {
 
 // app.use('/', indexRouter);
 app.use('/', authRouter);
+app.use('/module', training)
 app.use('/products', product);
 
 /** LISTEN ON PORT */
@@ -106,5 +108,3 @@ app.listen(port, () => {
 });
 
 //passport-auth0
-
-

@@ -3,22 +3,38 @@ import mongoose from 'mongoose'
 const Schema = mongoose.Schema
 const { Mixed } = Schema.Types
 const ChunkSchema = new Schema({
-    chunk_id: String,
-    module_id: String,
-    type: String,
     context: {
-        url: String,
-        previousChunk: Mixed,
-        nextChunk: Mixed,
+        host: String,
+        hostname: String,
+        href: String,
+        origin: String,
+        pathname: String,
+        port: String,
+        protocol: String,
     },
-    action: {
-        type: { type: String } 
-    },
-    target: {
-        DOMObject: Object,
-        element: String,
-    },  
-    description: String,
+    data: [{
+        chunk_id: String,
+        module_id: String,
+        context: {
+            url: String,
+            host: String,
+            hostname: String,
+            href: String,
+            origin: String,
+            pathname: String,
+            port: String,
+            protocol: String,
+            previousChunk: Schema.Types.Mixed,
+            nextChunk: Schema.Types.Mixed,
+        },
+        condition: {
+            type: { type:String },
+            info: {}
+        },
+        description: String,
+        title: String
+    }],
+    c_id: String
 })
 
 // Export the model
